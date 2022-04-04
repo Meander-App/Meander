@@ -2,7 +2,18 @@ import { ActionType } from '../action-types';
 import { Action } from '../actions/actions'
 
 const initialState = {
-  currentCity: ''
+  currentCity: '',
+  resultsList: [], 
+  inputForm: {
+    pinType: '',
+    name: '',
+    notes: '',
+  },
+  newPin: {
+    show: false,
+    lat: null,
+    long: null
+  }
 };
 
 
