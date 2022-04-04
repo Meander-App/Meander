@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import LocationMap from "./Components/LocationMap";
 
 declare namespace JSX {
-  interface IntrinsicElemenets {
+  interface IntrinsicElements {
     div: any;
   }
 }
@@ -9,7 +10,11 @@ declare namespace JSX {
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      App
+      <LocationMap></LocationMap>
+    </div>
+
   )
   
 }
