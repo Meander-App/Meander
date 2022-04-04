@@ -1,3 +1,4 @@
+import { ActionType } from '../action-types';
 import { Action } from '../actions/actions'
 
 const initialState = {
@@ -10,11 +11,13 @@ const initialState = {
 const mapReducer = (state: any = initialState, action: Action) => {
   switch (action.type){
     //add different cases
-    case 'changeCity':
+    case ActionType.changeCity:
       return {
         ...state,
         currentCity
       }
+      case ActionType.pinLocation:
+        return 
     default:
       return state;
   }
