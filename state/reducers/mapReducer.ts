@@ -1,3 +1,4 @@
+import { Action } from '../actions/actions'
 
 const initialState = {
   currentCity: ''
