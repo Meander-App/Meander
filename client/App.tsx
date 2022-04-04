@@ -1,5 +1,5 @@
 import React from 'react';
-import LocationMap from './Components/LocationMap';
+// import LocationMap from './Components/LocationMap';
 import MapContainer from './Components/MapContainer';
 import CardContainer from './Components/CardContainer';
 
@@ -13,10 +13,10 @@ declare namespace JSX {
 const App = () => {
   return (
     <div>
-      App
-      <LocationMap></LocationMap>
+      {/* <LocationMap></LocationMap> */}
+      <MapContainer></MapContainer>
+      <CardContainer></CardContainer>
     </div>
-
   )
   
 }

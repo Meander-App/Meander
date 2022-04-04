@@ -1,5 +1,11 @@
 import React from 'react';
 
-const MapContainer = () => {}
+const MapContainer = () => {
+  return (
+    <div>
+      MapContainer
+    </div>
+  )
+}
 
 export default MapContainer;
