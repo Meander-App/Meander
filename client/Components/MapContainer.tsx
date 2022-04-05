@@ -6,7 +6,7 @@ import LocationButton from './LocationButton'
 import PinTypeButton from './PinTypeButton'
 import { Map, Marker, Draggable } from "pigeon-maps"
 import { movePin, togglePin } from './../state/actionCreators/index'
-
+import MapForm from './MapForm';
 
 const MapContainer = () => {
   const dispatch = useDispatch();
@@ -24,6 +24,7 @@ const MapContainer = () => {
         <LocationButton />
         <PinTypeButton />
         <Button onClick={() => {dispatch(togglePin())}}>Add New Pin</Button>
+        <MapForm />
       </Grid>
       {/* <LocationMap /> */}
       <Map height={600} center={center} defaultZoom={11}>

@@ -1,13 +1,20 @@
 {
-  "compilerOptions": {
-    "noImplicitAny": true,
-    "strict": true,
-    "module": "es6",
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"strict": true,
+		"lib": [
+			"dom",
+			"es2019",
+			"es2020.bigint",
+			"es2020.string",
+			"es2020.symbol.wellknown"
+		],
+		"module": "commonjs",
 		"esModuleInterop": true,
-    "target": "es5",
-    "jsx": "react",
-    "allowJs": true,
-    "moduleResolution": "node",
-  },
-	"include": ["**/*.ts", "**/*.tsx"],
+		"target": "es6",
+		"jsx": "react",
+		"allowJs": true,
+		"moduleResolution": "node"
+	},
+	"include": ["**/*.ts", "**/*.tsx"]
 }
