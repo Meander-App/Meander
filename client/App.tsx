@@ -1,5 +1,8 @@
 import React from 'react';
-import LocationMap from "./Components/LocationMap";
+import { Grid } from '@mui/material'
+import { CssBaseline } from '@mui/material';
+import MapContainer from './Components/MapContainer';
+import CardContainer from './Components/CardContainer';
 
 declare namespace JSX {
   interface IntrinsicElements {
@@ -7,14 +10,14 @@ declare namespace JSX {
   }
 }
 
-
 const App = () => {
   return (
-    <div>
-      App
-      <LocationMap></LocationMap>
-    </div>
-
+    <CssBaseline>
+      <Grid container direction='row'>
+        <MapContainer />
+        <CardContainer />
+      </Grid>
+    </CssBaseline>
   )
   
 }

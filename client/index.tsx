@@ -1,9 +1,11 @@
 import React from 'react';
 import { render } from "react-dom";
 import App from "./App";
+import Dashboard from './Components/Dashboard'
 
 
 render(
-  <App />,
+  // <App />,
+  <Dashboard />,
   document.getElementById('root')
 );

@@ -15,7 +15,7 @@ const LocationMap = () => {
   
   return (
     <div>
-      <Map height={300} width={300} defaultCenter={[40.7831, -73.9712]} defaultZoom={11}>
+      <Map height={500} width={1000} defaultCenter={[40.7831, -73.9712]} defaultZoom={11}>
         {markers}
       </Map>
     </div>
