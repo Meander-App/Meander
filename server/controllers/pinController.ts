@@ -49,10 +49,15 @@ const pinController = {
 	upVote: async function (req, res, next) {
 		try {
 			const { id } = req.params;
-			const upVotedPin = await Pin.findByIdAndUpdate(id, {
-				$inc: { votes: 1 },
-			});
+			const upVotedPin = await Pin.findByIdAndUpdate(
+				id,
+				{
+					$inc: { votes: 1 },
+				},
+				{ new: true }
+			);
 			res.locals.upVotedPin = upVotedPin;
+			console.log("Here's the updated vote pin: ", upVotedPin);
 			return next();
 		} catch (err) {
 			return next({

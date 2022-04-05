@@ -14,11 +14,11 @@ pinRouter.post('/', pinController.addPin, (req, res) => {
 
 // need to add /upVote and /downVote because routes are the same otherwise
 pinRouter.patch('/upVote/:id', pinController.upVote, (req, res) => {
-	res.status(200).send(res.locals.upVotedPin.votes);
+	res.status(200).json(res.locals.upVotedPin.votes);
 });
 
 pinRouter.patch('/downVote/:id', pinController.downVote, (req, res) => {
-	res.status(200).send(res.locals.downVotedPin.votes);
+	res.status(200).json(res.locals.downVotedPin.votes);
 });
 
 // save for later
