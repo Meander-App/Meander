@@ -9,6 +9,7 @@
 		"dev": "concurrently \"cross-env NODE_ENV=development webpack serve\" \"cross-env NODE_ENV=development nodemon server/server.ts\"",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"index": "cross-env NODE_ENV=development webpack serve",
+		"front": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
 		"server": "nodemon --watch 'server/**/*.ts' --exec 'ts-node' server/server.ts -e ts"
 	},
 	"keywords": [],
