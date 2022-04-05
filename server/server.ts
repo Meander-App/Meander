@@ -1,6 +1,5 @@
 const path = require('path');
-const express = require('express');
-
+import express from 'express';
 const app = express();
 
 // import routers
@@ -9,7 +8,7 @@ const pinRouter = require('./routes/pinRouter');
 // run the server on 3000
 const PORT = 3000;
 
-// handle parsing request body
+// PUT/POST REQUESTS: recognize request body as either JSON or strings/arrays
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
