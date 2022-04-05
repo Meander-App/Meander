@@ -151,14 +151,19 @@ function DashboardContent() {
           }}
         >
           <Toolbar />
-          <Container id='ContainerHolder' maxWidth="lg" sx={{ mt: 4, mb: 4, display: 'flex', flexDirection: 'row'}} >
-            <Grid container spacing={3} sx={{ display: 'flex', flexDirection: 'row' }} >
+          <Container id='ContainerHolder' sx={{ mt: 4, mb: 4, width: '100%' }}>
+            <Grid sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              justifyContent: 'space-evenly'
+            }}>
               <Grid item xs={12}>
                 <Paper
                   sx={{
                     p: 2,
                     display: 'flex',
-                    flexDirection: 'column',
+                    flexDirection: 'row',
                     height: 750,
                   }}
                 >
