@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use('/api/pins', pinRouter);
+app.use('/pins', pinRouter);
 
 // catch-all route handler
 app.use((req, res) =>

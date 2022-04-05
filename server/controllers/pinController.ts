@@ -6,7 +6,7 @@ import { RequestHandler } from 'express';
 const pinController = {
 	getLocalPins: async function (req, res, next) {
 		// destructure/scrub the data
-		const { selectedMarket } = req.body;
+		const { selectedMarket } = req.params;
 		try {
 			const localPins = await Pin.find({ market: selectedMarket });
 			res.locals.localPins = localPins;

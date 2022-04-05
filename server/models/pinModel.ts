@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
-
-const MONGO_URI = `mongodb+srv://meander:${process.env.MONGODB_PWD}@cluster-zero.flxvn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+// access the env file
+import 'dotenv/config';
 
 mongoose
-	.connect(MONGO_URI, {
+	.connect(process.env.MONGO_URI!, {
 		// // sets the name of the DB that our collections are part of
 		dbName: 'pins',
 	})
