@@ -25,7 +25,7 @@ const mapReducer = (state: any = initialState, action: Action) => {
     case ActionType.changeCity:
       return {
         ...state,
-        currentCity
+        // currentCity
       }
       case ActionType.pinLocation:
         return 
