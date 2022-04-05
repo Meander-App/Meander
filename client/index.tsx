@@ -5,7 +5,6 @@ import Dashboard from './Components/Dashboard'
 
 
 render(
-  // <App />,
-  <Dashboard />,
+  <App />,
   document.getElementById('root')
 );

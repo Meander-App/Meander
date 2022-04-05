@@ -1,5 +1,6 @@
 export enum ActionType {
   changeCity = 'changeCity',
-  showPin = 'showPin',
-  addPin = 'addPin'
+  addPin = 'addPin',
+  movePin = 'movePin',
+  togglePin = 'togglePin'
 }
