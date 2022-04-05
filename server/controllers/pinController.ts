@@ -46,8 +46,44 @@ const pinController = {
 			});
 		}
 	} as RequestHandler,
-	// upVote: async function (req, res, next) {} as RequestHandler,
-	// downVote: async function (req, res, next) {} as RequestHandler,
+	upVote: async function (req, res, next) {
+		try {
+			const { id } = req.params;
+			const upVotedPin = await Pin.findByIdAndUpdate(id, {
+				$inc: { votes: 1 },
+			});
+			res.locals.upVotedPin = upVotedPin;
+			return next();
+		} catch (err) {
+			return next({
+				log: `pinController.upVote: ERROR: ${
+					typeof err === 'object' ? JSON.stringify(err) : err
+				}`,
+				message: {
+					err: 'Error occurred in pinController.upVote. Check server logs for more details.',
+				},
+			});
+		}
+	} as RequestHandler,
+	downVote: async function (req, res, next) {
+		try {
+			const { id } = req.params;
+			const downVotedPin = await Pin.findByIdAndUpdate(id, {
+				$inc: { votes: -1 },
+			});
+			res.locals.downVotedPin = downVotedPin;
+			return next();
+		} catch (err) {
+			return next({
+				log: `pinController.downVote: ERROR: ${
+					typeof err === 'object' ? JSON.stringify(err) : err
+				}`,
+				message: {
+					err: 'Error occurred in pinController.downVote. Check server logs for more details.',
+				},
+			});
+		}
+	} as RequestHandler,
 	deletePin: async function (req, res, next) {
 		const { id } = req.params;
 		try {
