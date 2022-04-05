@@ -34,6 +34,7 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@redux-devtools/extension": "^3.2.2",
     "@types/react-dom": "^17.0.14",
     "babel-loader": "^8.2.4",
     "concurrently": "^7.1.0",
