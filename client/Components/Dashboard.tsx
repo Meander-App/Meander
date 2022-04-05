@@ -17,9 +17,11 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
 import { mainListItems, secondaryListItems } from './listItems';
 import MapContainer from './MapContainer';
 import CardContainer from './CardContainer';
+
 
 
 const drawerWidth: number = 240;
@@ -109,11 +111,11 @@ function DashboardContent() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              Meander
             </Typography>
             <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
+              <Badge badgeContent={0} color="secondary">
+                <SettingsBrightnessIcon sx={{ m: 0.5 }}/>
               </Badge>
             </IconButton>
           </Toolbar>
@@ -135,7 +137,7 @@ function DashboardContent() {
           <List component="nav">
             {mainListItems}
             <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+            {/* {secondaryListItems} */}
           </List>
         </Drawer>
         <Box
@@ -151,8 +153,8 @@ function DashboardContent() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }} >
+            <Grid container spacing={3} sx={{ display: 'flex', flexDirection: 'row' }} >
               <Grid item xs={12}>
                 <Paper
                   sx={{
@@ -166,7 +168,7 @@ function DashboardContent() {
                 </Paper>
               </Grid>
               <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', width: 500 }}>
                   <CardContainer />
                 </Paper>
               </Grid>

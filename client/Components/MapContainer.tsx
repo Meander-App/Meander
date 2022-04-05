@@ -4,7 +4,7 @@ import { Container, Grid } from '@mui/material';
 import LocationButton from './LocationButton'
 import PinTypeButton from './PinTypeButton'
 import { Map, Marker } from "pigeon-maps"
-
+import MapForm from './MapForm';
 
 const MapContainer = () => {
   const markers = [<Marker width={50} anchor={[40.7406, -73.9940]} onClick={() => alert('Market clicked')} />, <Marker width={50} anchor={[40.7506, -73.9900]} />, <Marker width={50} anchor={[40.7506, -73.9935]} />];
@@ -14,6 +14,7 @@ const MapContainer = () => {
       <Grid container direction='row'>
         <LocationButton />
         <PinTypeButton />
+        <MapForm />
       </Grid>
       {/* <LocationMap /> */}
       <Map height={600} defaultCenter={[40.7831, -73.9712]} defaultZoom={11}>
