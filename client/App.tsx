@@ -1,5 +1,6 @@
 import React from 'react';
-// import LocationMap from './Components/LocationMap';
+import { Grid } from '@mui/material'
+import { CssBaseline } from '@mui/material';
 import MapContainer from './Components/MapContainer';
 import CardContainer from './Components/CardContainer';
 
@@ -9,14 +10,14 @@ declare namespace JSX {
   }
 }
 
-
 const App = () => {
   return (
-    <div>
-      {/* <LocationMap></LocationMap> */}
-      <MapContainer></MapContainer>
-      <CardContainer></CardContainer>
-    </div>
+    <CssBaseline>
+      <Grid container direction='row'>
+        <MapContainer />
+        <CardContainer />
+      </Grid>
+    </CssBaseline>
   )
   
 }
