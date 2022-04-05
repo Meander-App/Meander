@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "concurrently \"NODE_ENV=production\" \"node server/server.ts\"",
 		"build": "webpack -w",
-		"dev": "concurrently \"cross-env NODE_ENV=development webpack serve\" \"cross-env NODE_ENV=development nodemon server/server.ts\"",
+		"dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open --hot\" \"nodemon --watch 'server/**/*.ts' --exec 'ts-node' server/server.ts -e ts\"",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"index": "cross-env NODE_ENV=development webpack serve",
 		"front": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
@@ -38,6 +38,7 @@
 		"@babel/plugin-transform-runtime": "^7.17.0",
 		"@babel/preset-env": "^7.16.11",
 		"@babel/preset-react": "^7.16.7",
+		"@redux-devtools/extension": "^3.2.2",
 		"@types/express": "^4.17.13",
 		"@types/node": "^17.0.23",
 		"@types/react-dom": "^17.0.14",

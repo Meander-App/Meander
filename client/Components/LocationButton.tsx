@@ -4,15 +4,14 @@ import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import MenuItem from '@mui/material/MenuItem'
 import Menu from '@mui/material/Menu'
+import { useSelector, useDispatch } from 'react-redux'
+import { updateCity } from './../state/actionCreators/index'
 
-const locations = [
-  'Select a Location',
-  'New York',
-  'Los Angeles',
-  'Burlington'
-]
 
 const LocationButton = () => {
+  const locations = useSelector((state: any) => state.map.locationDetails.names);
+  const dispatch = useDispatch();
+  const setCurrentCity = (newCityIndex: number) => dispatch(updateCity(newCityIndex));
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
   const open = Boolean(anchorEl);
@@ -25,6 +24,7 @@ const LocationButton = () => {
     index: number,
   ) => {
     setSelectedIndex(index);
+    setCurrentCity(index);
     setAnchorEl(null);
   };
 
@@ -61,7 +61,7 @@ const LocationButton = () => {
         role: 'listbox',
       }}
     >
-        {locations.map((location, index) => (
+        {locations.map((location: string, index: number) => (
           <MenuItem
             key={location}
             disabled={index === 0}
