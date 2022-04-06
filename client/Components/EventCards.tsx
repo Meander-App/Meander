@@ -7,15 +7,25 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import axios from 'axios';
+import CommentModal from './CommentModal';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
 
 const EventCards = (props: any) => {
 	const [votes, setVotes] = useState(props.votes);
+	// console.log(props.pin)
+	const [open, setOpen] = useState(false);
+	const handleOpen = () => {
+		console.log('Clicked Comment')
+		console.log(open);
+		setOpen(!open);
+	}
+  const handleClose = () => setOpen(false);
 
 	const upvote = () => {
 		axios
 			.patch(`http://localhost:3000/pins/upVote/${props.id}`)
 			.then((response) => {
-				// console.log(response.data)
 				setVotes(response.data);
 			})
 			.catch((e) => console.log(e));
@@ -31,7 +41,7 @@ const EventCards = (props: any) => {
 	}
 
 	return (
-		<Card sx={{ maxWidth: 300 }}>
+		<Card sx={{ maxWidth: 450, marginBottom: '20px' }}>
 			<CardActionArea>
 				<CardContent>
 					<Typography gutterBottom variant='h5' component='div'>
@@ -42,10 +52,29 @@ const EventCards = (props: any) => {
 					</Typography>
 				</CardContent>
 			</CardActionArea>
-			<CardActions>
-				<Button size='small' color='primary'>
+			<CardActions sx={{ alignContent: 'space-around', justifyContent: 'center' }}>
+				<Button size='small' color='primary' onClick={handleOpen}>
 					Comments
 				</Button>
+				{/* {props.open && <CommentModal />} */}
+				<div>
+      <Button onClick={handleOpen}>Open modal</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+        </Box>
+      </Modal>
+    </div>
 				<Button size='small' color='primary'>
 					{votes} votes
 				</Button>
