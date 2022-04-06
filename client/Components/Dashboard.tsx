@@ -53,8 +53,29 @@ function DashboardContent() {
 		setOpen(!open);
 	};
 
+	const [mode, setMode] = React.useState<'light' | 'dark'>('light');
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      },
+    }),
+    [],
+  );
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+      }),
+    [mode],
+  );
+
+
 	return (
-		<ThemeProvider theme={mdTheme}>
+		<ThemeProvider theme={theme}>
 			<Box sx={{ display: 'flex', width: '100%' }}>
 				<CssBaseline />
 				<AppBar position='absolute'>
@@ -86,7 +107,7 @@ function DashboardContent() {
 						</Typography>
 						<IconButton color='inherit'>
 							<Badge badgeContent={0} color='secondary'>
-								<SettingsBrightnessIcon sx={{ m: 0.5 }} />
+								<SettingsBrightnessIcon sx={{ m: 0.5 }} onClick={colorMode.toggleColorMode} />
 							</Badge>
 						</IconButton>
 					</Toolbar>
@@ -115,28 +136,29 @@ function DashboardContent() {
 							spacing={3}
 							sx={{ display: 'flex', flexDirection: 'row' }}
 						>
-							<Grid item xs={4}>
-								<Paper
-									sx={{
-										p: 2,
-										display: 'flex',
-										flexDirection: 'column',
-										width: 500,
-									}}
-								>
-									<CardContainer />
-								</Paper>
-							</Grid>
 							<Grid item xs={8}>
 								<Paper
 									sx={{
 										p: 2,
 										display: 'flex',
 										flexDirection: 'column',
-										height: 750,
+										height: 800,
 									}}
 								>
 									<MapContainer />
+								</Paper>
+							</Grid>
+							<Grid item xs={4}>
+								<Paper
+									sx={{
+										p: 2,
+										display: 'flex',
+										flexDirection: 'column',
+										width: 550,
+										height: 800,
+									}}
+								>
+									<CardContainer />
 								</Paper>
 							</Grid>
 						</Grid>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Box } from '@mui/material';
 import EventCards from './EventCards';
 import axios from 'axios';
 import { useDispatch, useSelector, connect } from 'react-redux';
@@ -9,6 +9,14 @@ const CardContainer = (props: any) => {
 	const dispatch = useDispatch();
 	// const [cards, setCards] = useState([]);
 	// const pins = useSelector((state: any) => state.map.resultsList);
+	// const [open, setOpen] = useState(false);
+  // const handleOpen = () => {
+	// 	console.log('Clicked Comment')
+	// 	console.log(open);
+	// 	setOpen(!open);
+	// 	console.log(open);
+	// }
+  // const handleClose = () => setOpen(false);
 	// useEffect(() => {
 	// 	axios
 	// 		.get('http://localhost:3000/pins/NYC')
@@ -31,20 +39,21 @@ const CardContainer = (props: any) => {
 	}, []);
 
 	return (
-		<Grid
-			container
-			direction='row'
-			spacing={4}
-			sx={{ marginTop: '30px', padding: '30px' }}
+		<Box sx={{ 
+			// display: 'flex',
+			// flexDirection: 'column',
+			height: '750px', 
+			width: '500', 
+			overflow: 'scroll',
+			overflowX: 'hidden', 
+			padding: '30px',
+			alignContent: 'space-between' 
+		}}
 		>
-			{/* {cards} */}
 			{props.pins.map((pin: any) => {
-				return <EventCards key={pin._id} name={pin.name} votes={pin.votes} />;
+				return <EventCards key={pin._id} name={pin.name} votes={pin.votes} id={pin.id} pin={pin}/>;
 			})}
-			{/* {pins.map((pin: any) => {
-				return <EventCards key={pin._id} name={pin.name} votes={pin.votes} />;
-			})} */}
-		</Grid>
+		</Box>
 	);
 };
 
