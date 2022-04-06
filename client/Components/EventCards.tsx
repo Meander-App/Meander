@@ -7,33 +7,35 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
-const EventCards = () => {
-  
-  return(
-    <Card sx={{ maxWidth: 300}}>
-      <CardActionArea>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            YoYo's Hot Dogs
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            There's just some guy with his wife and they serve hot dogs
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Comments
-        </Button>
-        <Button size="small" color="primary">
-          <ThumbUpIcon />
-        </Button>
-        <Button size="small" color="primary">
-          <ThumbDownIcon />
-        </Button>
-      </CardActions>
-    </Card>
-  );
-}
+const EventCards = (props: any) => {
+	return (
+		<Card sx={{ maxWidth: 300 }}>
+			<CardActionArea>
+				<CardContent>
+					<Typography gutterBottom variant='h5' component='div'>
+						{props.name}
+					</Typography>
+					<Typography variant='body2' color='text.secondary'>
+						Notes should go here: {props.name}
+					</Typography>
+				</CardContent>
+			</CardActionArea>
+			<CardActions>
+				<Button size='small' color='primary'>
+					Comments
+				</Button>
+				<Button size='small' color='primary'>
+					{props.votes} votes
+				</Button>
+				<Button size='small' color='primary'>
+					<ThumbUpIcon />
+				</Button>
+				<Button size='small' color='primary'>
+					<ThumbDownIcon />
+				</Button>
+			</CardActions>
+		</Card>
+	);
+};
 
 export default EventCards;
