@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -6,8 +6,30 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import axios from 'axios';
 
 const EventCards = (props: any) => {
+	const [votes, setVotes] = useState(props.votes);
+
+	const upvote = () => {
+		axios
+			.patch(`http://localhost:3000/pins/upVote/${props.id}`)
+			.then((response) => {
+				// console.log(response.data)
+				setVotes(response.data);
+			})
+			.catch((e) => console.log(e));
+	}
+
+	const downvote = () => {
+		axios
+			.patch(`http://localhost:3000/pins/downVote/${props.id}`)
+			.then((response) => {
+				setVotes(response.data)
+			})
+			.catch((e) => console.log(e));
+	}
+
 	return (
 		<Card sx={{ maxWidth: 300 }}>
 			<CardActionArea>
@@ -25,12 +47,12 @@ const EventCards = (props: any) => {
 					Comments
 				</Button>
 				<Button size='small' color='primary'>
-					{props.votes} votes
+					{votes} votes
 				</Button>
-				<Button size='small' color='primary'>
+				<Button size='small' color='primary' onClick={upvote}>
 					<ThumbUpIcon />
 				</Button>
-				<Button size='small' color='primary'>
+				<Button size='small' color='primary' onClick={downvote}>
 					<ThumbDownIcon />
 				</Button>
 			</CardActions>

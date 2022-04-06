@@ -15,7 +15,7 @@ const CardContainer = () => {
 				response.data.forEach((pin: any) => {
 					cardsFromDatabase.push(
 						<Grid item>
-							<EventCards key={pin._id} name={pin.name} votes={pin.votes} />
+							<EventCards key={pin._id} name={pin.name} votes={pin.votes} id={pin._id} pin={pin} />
 						</Grid>
 					);
 				});

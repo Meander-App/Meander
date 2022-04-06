@@ -55,9 +55,9 @@ const MapContainer = () => {
       {pin.show && 
         <Draggable offset={[0, 0]} anchor={pin.anchor} onDragEnd={(newAnchor) => dispatch(movePin(newAnchor))} >
           {currentPin === 'FoodTruck' ? <img src='https://www.svgrepo.com/show/322373/food-truck.svg' width={50} height={45} alt="FoodTruck!" /> : ''}
-          {currentPin === 'StreetArtist' ? <img src='https://www.svgrepo.com/show/323051/present.svg' width={50} height={45} alt="StreetArtist!" /> : ''}
-          {currentPin === 'Giveaway' ? <img src={Giveaway} width={50} height={45} alt="Giveaway!" /> : ''}
-          {currentPin === 'Popup' ? <img src={Popup} width={50} height={45} alt="Popup!" /> : ''}
+          {currentPin === 'StreetArtist' ? <img src='https://www.svgrepo.com/show/84889/artist-brush.svg' width={50} height={45} alt="StreetArtist!" /> : ''}
+          {currentPin === 'Giveaway' ? <img src='https://www.svgrepo.com/show/323051/present.svg' width={50} height={45} alt="Giveaway!" /> : ''}
+          {currentPin === 'Popup' ? <img src='https://www.svgrepo.com/show/1200/tent.svg' width={50} height={45} alt="Popup!" /> : ''}
         </Draggable>
       }
 

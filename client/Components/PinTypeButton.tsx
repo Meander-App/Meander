@@ -6,16 +6,10 @@ import MenuItem from '@mui/material/MenuItem'
 import Menu from '@mui/material/Menu'
 import {useDispatch, useSelector} from 'react-redux';
 
-const pinTypes = [
-  'Select a Pin Type',
-  'Food Truck', 
-  'Street Artist', 
-  'Pop-Up', 
-  'Giveaway'
-]
 
 const PinTypeButton = () => {
   const dispatch = useDispatch();
+  const pinList = useSelector((state: any) => state.map.pinList);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
   const open = Boolean(anchorEl);
@@ -52,7 +46,7 @@ const PinTypeButton = () => {
       >
         <ListItemText
           primary="Pin Type"
-          secondary={pinTypes[selectedIndex]} />
+          secondary={pinList[selectedIndex]} />
       </ListItem>
     </List><Menu
       id="lock-menu"
@@ -64,7 +58,7 @@ const PinTypeButton = () => {
         role: 'listbox',
       }}
     >
-        {pinTypes.map((pinType, index) => (
+        {pinList.map((pinType: string, index: number) => (
           <MenuItem
             key={pinType}
             disabled={index === 0}
