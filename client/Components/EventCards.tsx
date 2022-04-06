@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import CommentModal from './CommentModal';
 import Modal from '@mui/material/Modal';
@@ -71,5 +72,11 @@ const EventCards = (props: any) => {
 		</Card>
 	);
 };
+
+// function mapDispatchToProps(dispatch) {
+// 	return {removePin: ()}
+// }
+
+// export default connect(mapDispatchToProps)(EventCards);
 
 export default EventCards;

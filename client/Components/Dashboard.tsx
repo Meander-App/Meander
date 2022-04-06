@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import { 
-  CssBaseline, 
-  Box, 
-  Toolbar, 
-  List, 
-  Typography, 
-  Divider, 
-  IconButton, 
-  Badge, 
-  Container,
-  Grid, 
-  Paper 
+import {
+	CssBaseline,
+	Box,
+	Toolbar,
+	List,
+	Typography,
+	Divider,
+	IconButton,
+	Badge,
+	Container,
+	Grid,
+	Paper,
 } from '@mui/material';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
@@ -121,6 +121,7 @@ function DashboardContent() {
 								: theme.palette.grey[900],
 						flexGrow: 1,
 						height: '100vh',
+						width: '100%',
 						overflow: 'auto',
 					}}
 				>
