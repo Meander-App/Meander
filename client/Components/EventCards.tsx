@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -9,19 +8,12 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import CommentModal from './CommentModal';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
+
+
+
 
 const EventCards = (props: any) => {
 	const [votes, setVotes] = useState(props.votes);
-	// console.log(props.pin)
-	const [open, setOpen] = useState(false);
-	const handleOpen = () => {
-		console.log('Clicked Comment')
-		console.log(open);
-		setOpen(!open);
-	}
-  const handleClose = () => setOpen(false);
 
 	const upvote = () => {
 		axios
@@ -49,16 +41,18 @@ const EventCards = (props: any) => {
 						{props.name}
 					</Typography>
 					<Typography variant='body2' color='text.secondary'>
-						Notes should go here: {props.name}
+						Location: {props.pin.market}
+					</Typography>
+					<Typography variant='body2' color='text.secondary'>
+						{props.pin.notes}
 					</Typography>
 				</CardContent>
 			</CardActionArea>
 			<CardActions sx={{ alignContent: 'space-around', justifyContent: 'center' }}>
-				<Button size='small' color='primary' onClick={handleOpen}>
+				<Button size='small' color='primary' >
 					Comments
 				</Button>
 				{/* {props.open && <CommentModal />} */}
-				
 				<Button size='small' color='primary'>
 					{votes} votes
 				</Button>

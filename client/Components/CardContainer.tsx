@@ -51,7 +51,7 @@ const CardContainer = (props: any) => {
 		}}
 		>
 			{props.pins.map((pin: any) => {
-				return <EventCards key={pin._id} name={pin.name} votes={pin.votes} id={pin.id} pin={pin}/>;
+				return <EventCards key={pin._id} name={pin.name} votes={pin.votes} id={pin._id} pin={pin}/>;
 			})}
 		</Box>
 	);
