@@ -1,17 +1,21 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { Box, TextField, Button } from '@mui/material';
+import PinTypeButton from './PinTypeButton';
 
 const MapForm = () => {
   return (
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '30ch' },
+        display: 'inline-flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        '& .MuiTextField-root': { m: 1, width: '30%' },
       }}
       noValidate
       autoComplete="off"
     >
+      <PinTypeButton />
       <TextField
           required
           id="event-name"
@@ -23,8 +27,8 @@ const MapForm = () => {
           label="Event Details"
           placeholder="Describe the event"
           multiline
-          // rows={2}
       />
+      <Button sx={{height: 50}} variant="outlined">Submit</Button>
     </Box>
   )
 }

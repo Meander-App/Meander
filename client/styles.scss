@@ -1,10 +1,15 @@
 body {
-  color: black
-
+  color: black;
 }
 
 map-container {
   display: flex;
   flex-direction: row;
   padding: 100px;
+}
+
+#mapContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
 }
