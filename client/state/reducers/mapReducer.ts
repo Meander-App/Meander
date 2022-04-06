@@ -4,10 +4,9 @@ import { Action } from '../actions/actions'
 const initialState = {
   currentCity: '',
   currentCenter: [40.7831, -73.9712], 
-  currentPinType: 'Food Truck',
   resultsList: [], 
   inputForm: {
-    pinType: '',
+    pinType: 'FoodTruck',
     name: '',
     notes: '',
   },
