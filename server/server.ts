@@ -3,6 +3,7 @@ import path from 'path';
 import express from 'express';
 // type for error handler (err, req, res, next)
 import { ErrorRequestHandler } from 'express';
+import cors from 'cors';
 
 // import routers
 import pinRouter from './routes/pinRouter';
@@ -15,6 +16,7 @@ const app = express();
 // PUT/POST REQUESTS: recognize request body as either JSON or strings/arrays
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
