@@ -5,6 +5,11 @@ interface changeCityAction {
   payload: string
 };
 
+interface updatePinTypeAction {
+  type: ActionType.updatePinType
+  payload: string
+};
+
 interface togglePinAction {
   type: ActionType.togglePin
   //pinLocation payload set to any for now
@@ -22,4 +27,4 @@ interface movePinAction {
   payload: any
 };
 
-export type Action = changeCityAction | togglePinAction | addPinAction | movePinAction;
+export type Action = changeCityAction | updatePinTypeAction | togglePinAction | addPinAction | movePinAction;

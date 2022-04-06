@@ -9,6 +9,13 @@ export const updateCity = (cityIndex: number) => (
   }
 )
 
+export const updatePinType = (pinIndex: number) => (
+  {  
+    type: ActionType.updatePinType,
+    payload: pinIndex
+  }
+)
+
 export const togglePin = () => (
   {
     type: ActionType.togglePin
