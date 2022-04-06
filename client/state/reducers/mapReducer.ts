@@ -39,6 +39,7 @@ const mapReducer = (state: any = initialState, action: Action) => {
 	let resultsList;
 	let updatedPin;
 	let pinType;
+	let updatedForm;
 	console.log(state);
 	switch (action.type) {
 		//add different cases
@@ -59,11 +60,11 @@ const mapReducer = (state: any = initialState, action: Action) => {
 				currentCenter: state.locationDetails.coordinates[action.payload],
 			};
 		case ActionType.updatePinType:
-			pinType = { ...state.currentPinType };
-			pinType = action.payload;
+			updatedForm = {...state.inputForm};
+			updatedForm.pinType = state.pinList[action.payload];
 			return {
 				...state,
-				currentPinType: pinType,
+				inputForm: updatedForm,
 			};
 		case ActionType.togglePin:
 			updatedPin = { ...state.newPin };
@@ -91,6 +92,14 @@ const mapReducer = (state: any = initialState, action: Action) => {
 				...state,
 				resultsList,
 			};
+
+		case ActionType.updateField:
+			updatedForm = {...state.inputForm};
+			updatedForm[action.payload.fieldName] = action.payload.newValue;
+			return {
+				...state,
+				inputForm: updatedForm
+			}
 		default:
 			return state;
 	}

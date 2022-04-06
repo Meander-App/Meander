@@ -5,6 +5,7 @@ import ListItemText from '@mui/material/ListItemText'
 import MenuItem from '@mui/material/MenuItem'
 import Menu from '@mui/material/Menu'
 import {useDispatch, useSelector} from 'react-redux';
+import { updatePinType } from '../state/actionCreators';
 
 
 const PinTypeButton = () => {
@@ -23,6 +24,7 @@ const PinTypeButton = () => {
   ) => {
     setSelectedIndex(index);
     setAnchorEl(null);
+    dispatch(updatePinType(index));
   };
 
   const handleClose = () => {

@@ -53,3 +53,4 @@ export async function removePin(dispatch: any, getState: any) {
 	} catch (e) {
 		console.log(e);
 	}
+}
