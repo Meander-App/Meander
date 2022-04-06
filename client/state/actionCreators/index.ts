@@ -35,6 +35,11 @@ export const addPin = (coordinates: any) => {
 	};
 };
 
+export const updateField = (fieldName: string, newValue: string) => ({
+			type: ActionType.updateField,
+			payload: {fieldName: fieldName, newValue: newValue}
+	});
+
 export const movePin = (coordinates: any) => ({
 	type: ActionType.movePin,
 	payload: coordinates,
