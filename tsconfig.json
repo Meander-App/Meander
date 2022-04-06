@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		"noImplicitAny": true,
 		"strict": true,
+		"typeRoots": ["./src/@types", "./node_modules/@types"],
 		"lib": [
 			"dom",
 			"es2019",
@@ -16,5 +17,5 @@
 		"allowJs": true,
 		"moduleResolution": "node"
 	},
-	"include": ["**/*.ts", "**/*.tsx"]
+	"include": ["**/*.ts", "**/*.tsx", "./client/assets/*"]
 }

@@ -4,6 +4,7 @@ import { Action } from '../actions/actions'
 const initialState = {
   currentCity: '',
   currentCenter: [40.7831, -73.9712], 
+  currentPinType: 'Food Truck',
   resultsList: [], 
   inputForm: {
     pinType: '',
@@ -17,7 +18,14 @@ const initialState = {
   locationDetails: {
     names: ['Select a Location', 'New York', 'Los Angeles', 'Boston', 'Miami'],
     coordinates: [[40.7831, -73.9712], [40.7831, -73.9712], [34.052235, -118.243683], [42.35866, -71.05674], [25.775084, -80.1947]]
-  }
+  },
+  pinList: [
+    'Select a Pin Type',
+    'Food Truck', 
+    'Street Artist', 
+    'Pop-Up', 
+    'Giveaway'
+  ]
 
 };
 
@@ -26,6 +34,7 @@ const initialState = {
 const mapReducer = (state: any = initialState, action: Action) => {
   let resultsList;
   let updatedPin;
+  let pinType;
   console.log(state);
   switch (action.type){
     //add different cases
@@ -35,6 +44,13 @@ const mapReducer = (state: any = initialState, action: Action) => {
         ...state,
         currentCity: state.locationDetails.names[action.payload],
         currentCenter: state.locationDetails.coordinates[action.payload]
+      };
+    case ActionType.updatePinType:
+      pinType = {...state.currentPinType};
+      pinType = action.payload;
+      return {
+        ...state,
+        currentPinType: pinType,
       };
     case ActionType.togglePin:
       updatedPin = {...state.newPin};
