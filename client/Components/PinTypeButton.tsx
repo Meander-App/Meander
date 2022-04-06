@@ -6,13 +6,6 @@ import MenuItem from '@mui/material/MenuItem'
 import Menu from '@mui/material/Menu'
 import {useDispatch, useSelector} from 'react-redux';
 
-const pinTypes = [
-  'Select a Pin Type',
-  'Food Truck', 
-  'Street Artist', 
-  'Pop-Up', 
-  'Giveaway'
-]
 
 const PinTypeButton = () => {
   const dispatch = useDispatch();
@@ -53,7 +46,7 @@ const PinTypeButton = () => {
       >
         <ListItemText
           primary="Pin Type"
-          secondary={pinTypes[selectedIndex]} />
+          secondary={pinList[selectedIndex]} />
       </ListItem>
     </List><Menu
       id="lock-menu"
