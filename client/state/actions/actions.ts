@@ -37,6 +37,11 @@ interface movePinAction {
 	payload: any;
 }
 
+interface updateFieldAction {
+	type: ActionType.updateField;
+	payload: any;
+}
+
 export type Action =
 	| changeCityAction
 	| updatePinTypeAction
@@ -44,4 +49,5 @@ export type Action =
 	| addPinAction
 	| movePinAction
 	| pinsFetchedAction
-	| submitPinAction;
+	| submitPinAction
+  | updateFieldAction;

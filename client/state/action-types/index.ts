@@ -6,4 +6,5 @@ export enum ActionType {
 	addPin = 'addPin',
 	movePin = 'movePin',
 	togglePin = 'togglePin',
+	updateField = 'updateField',
 }
