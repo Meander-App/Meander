@@ -15,9 +15,7 @@ const EventCards = (props: any) => {
 		axios
 			.patch(`http://localhost:3000/pins/upVote/${props.id}`)
 			.then((response) => {
-				// const vote = JSON.stringify(response);
-				// console.log(vote);
-				console.log(response.data)
+				// console.log(response.data)
 				setVotes(response.data);
 			})
 			.catch((e) => console.log(e));
