@@ -12,7 +12,6 @@ const CardContainer = () => {
 			.get('http://localhost:3000/pins/NYC')
 			.then((response) => {
 				const cardsFromDatabase: any = [];
-				console.log('Here are the pins: ', response.data);
 				response.data.forEach((pin: any) => {
 					cardsFromDatabase.push(
 						<Grid item>
@@ -24,14 +23,6 @@ const CardContainer = () => {
 			})
 			.catch((e) => console.log(e));
 	}, []);
-
-	// for (let i = 0; i < 6; i++) {
-	// 	cardList.push(
-	// 		<Grid key={i} item>
-	// 			<EventCards />
-	// 		</Grid>
-	// 	);
-	// }
 
 	return (
 		<Grid
