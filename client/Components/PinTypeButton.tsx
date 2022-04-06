@@ -4,6 +4,7 @@ import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import MenuItem from '@mui/material/MenuItem'
 import Menu from '@mui/material/Menu'
+import {useDispatch, useSelector} from 'react-redux';
 
 const pinTypes = [
   'Select a Pin Type',
@@ -14,6 +15,7 @@ const pinTypes = [
 ]
 
 const PinTypeButton = () => {
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
   const open = Boolean(anchorEl);
